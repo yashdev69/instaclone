@@ -6,11 +6,11 @@ const bcrypt = require("bcrypt");
 //Register User
 router.post("/register", async (req, res) => {
   try {
-    // const useremail = await User.findOne({ email: req.body.email });
-    // useremail && res.send("Email already taken");
+    const useremail = await User.findOne({ email: req.body.email });
+    useremail && res.send("Email already taken");
 
-    // const username = await User.findOne({ username: req.body.username });
-    // username && res.send("username already taken");
+    const username = await User.findOne({ username: req.body.username });
+    username && res.send("username already taken");
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
