@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-var ObjectID = require("mongodb").ObjectID;
 
 const postSchema = new mongoose.Schema(
   {
