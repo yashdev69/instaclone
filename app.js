@@ -8,6 +8,7 @@ const helmet = require("helmet");
 // routes
 const authRoute = require("./routes/auth");
 const usersRoute = require("./routes/users");
+const postsRoute = require("./routes/posts");
 
 dotenv.config();
 const port = process.env.PORT || 5000;
@@ -33,6 +34,7 @@ app.use(helmet());
 
 app.use("/api/auth", authRoute);
 app.use("/api/user", usersRoute);
+app.use("/api/post", postsRoute);
 
 app.listen(port, () => {
   console.log(`server is running on : http://localhost:${port}`);

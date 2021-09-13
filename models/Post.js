@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+var ObjectID = require("mongodb").ObjectID;
+
 const postSchema = new mongoose.Schema(
   {
     userId: {
@@ -26,4 +28,4 @@ const postSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongooes.model("Post", postSchema);
+module.exports = mongoose.model("Post", postSchema);

@@ -91,7 +91,7 @@ router.delete("/deletepost/:id", async (req, res) => {
 router.put("/like/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    if (!post.likes.include(req.params.id)) {
+    if (!post.likes.includes(req.body.friendId)) {
       await post.updateOne({ $push: { likes: req.body.friendId } });
       res.status(200).json("liked");
     } else {
@@ -110,7 +110,7 @@ router.put("/comment/:id", async (req, res) => {
 
     const comment = {
       userId: req.body.userId,
-      commnet: req.body.commnet,
+      comment: req.body.comment,
     };
 
     await post.updateOne({ $push: { comments: comment } });
